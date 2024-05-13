@@ -3,6 +3,8 @@ package co.develhope.java23.school;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 @RequestMapping("/students")
 @RestController
 public class StudentController {
@@ -20,4 +22,8 @@ public class StudentController {
         return studentRepository.save(student);
     }
 
+    @GetMapping
+    public Collection<Student> findAllStudents () {
+        return studentRepository.findAll();
+    }
 }
